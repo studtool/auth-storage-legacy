@@ -1,2 +1,6 @@
+### vagrant ###
 .vagrant
 *.log
+
+### dev ###
+scripts/sql/user.sql

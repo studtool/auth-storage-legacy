@@ -21,18 +21,11 @@ Vagrant.configure("2") do |config|
     path: "./scripts/shell/create.sh"
 
   config.vm.provision "file",
-    source: "./config/postgresql.conf", destination: "/tmp/config/postgresql.conf"
+    source: "./config", destination: "/tmp/config"
   config.vm.provision "shell",
     privileged: true,
-    inline: "mv /tmp/config/postgresql.conf /etc/postgresql/11/main/postgresql.conf \
-        && chown postgres:postgres /etc/postgresql/11/main/postgresql.conf"
-
-  config.vm.provision "file",
-    source: "./config/pg_hba.conf", destination: "/tmp/config/pg_hba.conf"
-  config.vm.provision "shell",
-    privileged: true,
-    inline: "mv /tmp/config/pg_hba.conf /etc/postgresql/11/main/pg_hba.conf \
-        && chown postgres:postgres /etc/postgresql/11/main/pg_hba.conf"
+    inline: "mv /tmp/config/* /etc/postgresql/11/main/ \
+        && chown postgres:postgres /etc/postgresql/11/main/*"
 
   config.vm.provision "shell",
     privileged: true,
