@@ -1,6 +1,3 @@
-### vagrant ###
-.vagrant
-*.log
-
-### dev ###
-scripts/sql/user.sql
+### IDE ###
+.idea
+.vscode
