@@ -1,12 +1,14 @@
 CREATE TABLE IF NOT EXISTS profile
 (
-    user_id  TEXT
+    user_id TEXT
         CONSTRAINT profile_user_id_pk PRIMARY KEY,
-    email    TEXT
-        CONSTRAINT profile_email_unique UNIQUE
-        CONSTRAINT profile_email_not_null NOT NULL,
+    email TEXT
+        CONSTRAINT profile_email_not_null NOT NULL
+        CONSTRAINT profile_email_unique UNIQUE,
     password TEXT
-        CONSTRAINT profile_password_not_null NOT NULL
+        CONSTRAINT profile_password_not_null NOT NULL,
+    is_verified TEXT
+        CONSTRAINT profile_is_verified_not_null NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS session
