@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS session
     user_id       TEXT
         CONSTRAINT session_user_id_fk REFERENCES profile (user_id),
     refresh_token TEXT
-        CONSTRAINT session_refresh_token_unique UNIQUE
-        CONSTRAINT session_refresh_token_not_null NOT NULL
+        CONSTRAINT session_refresh_token_not_null NOT NULL,
+    CONSTRAINT session_id_refresh_token_unique UNIQUE (session_id, refresh_token)
 );
