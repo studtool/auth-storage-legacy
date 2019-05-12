@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS profile
         CONSTRAINT profile_email_unique UNIQUE,
     password TEXT
         CONSTRAINT profile_password_not_null NOT NULL,
-    is_verified TEXT
+    is_verified BOOLEAN
         CONSTRAINT profile_is_verified_not_null NOT NULL
 );
 
